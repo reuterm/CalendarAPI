@@ -1,5 +1,5 @@
 # CalendarAPI
-Calendar Rest API with multiple frontends
+Simple calendar REST API with two different frontends: a web application and a iOS application.
 
 ## Installing Components
 ### Node Js
