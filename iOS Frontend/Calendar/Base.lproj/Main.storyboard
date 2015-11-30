@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="geE-FA-ou3">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Your Events-->
+        <scene sceneID="LwR-4e-57n">
+            <objects>
+                <tableViewController id="Xr1-Jp-OfS" customClass="EventTableViewController" customModule="Calendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="kQK-Im-45M">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="EventTableViewCell" rowHeight="60" id="pJO-Dv-S1y" customClass="EventTableViewCell" customModule="Calendar" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pJO-Dv-S1y" id="DRm-Cw-1Tv">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-3Z-iWe">
+                                            <rect key="frame" x="8" y="30" width="584" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbk-Us-fb6">
+                                            <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="dateLabel" destination="4HO-3Z-iWe" id="W53-eQ-GBt"/>
+                                    <outlet property="titleLabel" destination="Fbk-Us-fb6" id="gQy-Ze-9nY"/>
+                                    <segue destination="yMH-Lr-QyL" kind="show" identifier="EditEvent" id="nLX-wr-gVU"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Xr1-Jp-OfS" id="DoU-BU-kgc"/>
+                            <outlet property="delegate" destination="Xr1-Jp-OfS" id="tTh-jW-b2C"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Qla-Lk-DIL"/>
+                        <barButtonItem title="Import events from local calendar" id="VFD-dK-Jc5">
+                            <connections>
+                                <action selector="importEvents:" destination="Xr1-Jp-OfS" id="Vjd-Lr-1wB"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9o2-ad-YUR"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Your Events" id="LGU-NG-TBn">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="skg-Am-nUz">
+                            <connections>
+                                <segue destination="TiV-Dv-M7z" kind="presentation" identifier="AddEvent" id="B0z-Kl-jXA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="importButton" destination="VFD-dK-Jc5" id="txp-op-7Pg"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jhP-U5-VNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="753" y="241"/>
+        </scene>
+        <!--New Event-->
+        <scene sceneID="7ts-Bl-40c">
+            <objects>
+                <viewController id="yMH-Lr-QyL" customClass="EventViewController" customModule="Calendar" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ny0-BG-01A"/>
+                        <viewControllerLayoutGuide type="bottom" id="TI6-b1-grR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="c0J-D9-rKb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AnF-E4-NAC">
+                                <rect key="frame" x="20" y="77" width="560" height="292"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Oy-9a-OF5">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tuu-9H-OFH">
+                                        <rect key="frame" x="0.0" y="40" width="560" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUr-95-TX9">
+                                        <rect key="frame" x="0.0" y="80" width="560" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick start date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geb-gu-j11">
+                                        <rect key="frame" x="0.0" y="111" width="560" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="startFieldEditing:" destination="yMH-Lr-QyL" eventType="editingDidEnd" id="Q4e-4i-00F"/>
+                                            <action selector="startFieldEditing:" destination="yMH-Lr-QyL" eventType="editingDidBegin" id="mmn-gW-AIZ"/>
+                                        </connections>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BY-63-5Tb">
+                                        <rect key="frame" x="0.0" y="151" width="560" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick end date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Xp-Vz-lXQ">
+                                        <rect key="frame" x="0.0" y="182" width="560" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="endFieldEditing:" destination="yMH-Lr-QyL" eventType="editingDidEnd" id="0Vi-MS-w8L"/>
+                                            <action selector="endFieldEditing:" destination="yMH-Lr-QyL" eventType="editingDidBegin" id="FK7-3p-y1J"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Venue" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cep-R3-kLQ">
+                                        <rect key="frame" x="0.0" y="222" width="560" height="30"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o7z-AN-tZR">
+                                        <rect key="frame" x="0.0" y="262" width="560" height="30"/>
+                                        <animations/>
+                                        <state key="normal" title="Add to phone calendar"/>
+                                        <connections>
+                                            <action selector="syncEvent:" destination="yMH-Lr-QyL" eventType="touchUpInside" id="xSG-Jw-QtF"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                            </stackView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AnF-E4-NAC" firstAttribute="leading" secondItem="c0J-D9-rKb" secondAttribute="leadingMargin" id="Gnv-if-wO8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AnF-E4-NAC" secondAttribute="trailing" id="Vdh-Dt-mtq"/>
+                            <constraint firstItem="AnF-E4-NAC" firstAttribute="top" secondItem="Ny0-BG-01A" secondAttribute="bottom" constant="13" id="dJg-gV-dRj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Event" id="byJ-xi-00Z">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Cc8-Go-GaV">
+                            <connections>
+                                <action selector="cancel:" destination="yMH-Lr-QyL" id="8bc-Pa-9ch"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9on-hr-HVB">
+                            <connections>
+                                <segue destination="OuK-2N-4iU" kind="unwind" unwindAction="unwindToEventList:" id="pOI-Ke-SOl"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="Cc8-Go-GaV" id="Kxy-72-QGl"/>
+                        <outlet property="descTextField" destination="Tuu-9H-OFH" id="63h-Ur-szO"/>
+                        <outlet property="endTextField" destination="9Xp-Vz-lXQ" id="eBN-ye-1qz"/>
+                        <outlet property="saveButton" destination="9on-hr-HVB" id="SRe-zn-qar"/>
+                        <outlet property="startTextField" destination="geb-gu-j11" id="ikl-uW-uMv"/>
+                        <outlet property="syncButton" destination="o7z-AN-tZR" id="KUt-gd-2zs"/>
+                        <outlet property="titleTextField" destination="5Oy-9a-OF5" id="di2-9m-cut"/>
+                        <outlet property="venueTextField" destination="cep-R3-kLQ" id="n3V-4i-x2B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LdC-ik-Auv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="OuK-2N-4iU" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2386" y="241"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QMw-h1-clE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="geE-FA-ou3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ipf-cA-Sn3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xr1-Jp-OfS" kind="relationship" relationship="rootViewController" id="unP-DT-2IP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zhJ-v8-0qA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-59" y="241"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6pB-ms-rqa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TiV-Dv-M7z" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sh0-25-vqu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yMH-Lr-QyL" kind="relationship" relationship="rootViewController" id="tps-Cl-g34"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w3o-TI-Gi4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1570" y="649"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nLX-wr-gVU"/>
+    </inferredMetricsTieBreakers>
+</document>

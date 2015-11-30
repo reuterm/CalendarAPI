@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="calendarApp" id="top">
+	<head>
+	    <title>Web Calendar</title>
+	    <link rel="stylesheet" href="bower_components/bootstrap-css/css/bootstrap.css" />
+	    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css">
+
+	    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+	    <script src="bower_components/angular/angular.js"></script>
+	    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+	    <script src="bower_components/moment/moment.js"></script>
+	    <script src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
+	    <script src="bower_components/fullcalendar/dist/gcal.js"></script>
+	    <script src="src/calendar.js"></script>
+	    <script src="app.js"></script>
+	</head>
+	<body data-spy="scroll">
+		<div class="container">
+			<section id="directives-calendar" ng-controller="CalendarCtrl">
+				<div class="calendar" ng-model="eventSources" calendar="myCalendar2" ui-calendar="uiConfig.calendar"></div>
+				<div class="well" style="display: flex;">
+					<div class="well add-event" style="flex-grow: 1;">
+						<h4>Add Event</h4>
+						<form>
+							  <label>Title:</label>
+							  <input type="text" name="title" ng-model="evnt.title">
+							  <label>Description:</label>
+							  <input type="text" name="description" ng-model="evnt.description">
+							  <label>Start:</label>
+							  <input data-format="dd/MM/yyyy hh:mm:ss" type="text" name="start" ng-model="evnt.start">
+							  <label>End:</label>
+							  <input type="datetime" name="end" ng-model="evnt.end">
+							  <label>Venue:</label>
+							  <input type="text" name="venue" ng-model="evnt.venue">
+						</form>
+						<button type="button" class="btn btn-primary" ng-click="addEvent()">
+	                            Add Event
+	                    </button>
+	                </div>
+	                <div class="well edit-event" style="flex-grow: 1;">
+	                	<h4>Edit Event</h4>
+	                	<form>
+	                		  <label type="text" name="id" ng-model="edit.id" style="display: none;"></label>
+							  <label>Title:</label>
+							  <input type="text" name="title" ng-model="edit.title">
+							  <label>Description:</label>
+							  <input type="text" name="description" ng-model="edit.description">
+							  <label>Start:</label>
+							  <input type="datetime" name="start" ng-model="edit.start">
+							  <label>End:</label>
+							  <input type="datetime" name="end" ng-model="edit.end">
+							  <label>Venue:</label>
+							  <input type="text" name="venue" ng-model="edit.venue">
+						</form>
+						<button type="button" class="btn btn-primary" ng-click="updateEvent()">
+	                            Save
+	                    </button>
+	                    <button type="button" class="btn btn-primary" ng-click="removeEvent($index)">
+	                            Delete
+	                    </button>
+	                </div>
+	            </div>
+			</section>
+		</div>
+	</body>
+</html>
