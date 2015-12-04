@@ -28,7 +28,7 @@ app.controller('CalendarCtrl',
     // };
     /* event source that contains custom events on the scope */
     $scope.events = {
-            url: "http://130.233.42.84:8080/api/events/"
+            url: "http://localhost:8080/api/events/"
     };
 
     /* alert on eventClick */
@@ -48,7 +48,7 @@ app.controller('CalendarCtrl',
     };
     /* add custom event*/
     $scope.addEvent = function() {
-      $http.post("http://130.233.42.84:8080/api/events", $scope.evnt)
+      $http.post("http://localhost:8080/api/events", $scope.evnt)
             .success(function(data) {
                 $scope.evnt = {
                     title: "",
@@ -65,7 +65,7 @@ app.controller('CalendarCtrl',
     };
     /* remove event */
     $scope.removeEvent = function(index) {
-      $http.delete("http://130.233.42.84:8080/api/events/"+$scope.edit.id)
+      $http.delete("http://localhost:8080/api/events/"+$scope.edit.id)
             .success(function(data) {
                 $scope.edit = {
                     id: "",
@@ -82,7 +82,7 @@ app.controller('CalendarCtrl',
             });
     };
     $scope.updateEvent = function() {
-      $http.put("http://130.233.42.84:8080/api/events/"+$scope.edit.id, $scope.edit)
+      $http.put("http://localhost:8080/api/events/"+$scope.edit.id, $scope.edit)
             .success(function(data) {
                 $scope.edit = {
                     id: "",
