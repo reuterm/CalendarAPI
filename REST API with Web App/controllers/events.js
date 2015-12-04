@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var googleapis = require("googleapis");
 var googleCal = googleapis.calendar("v3");
+// Provdie key for google syncronastion
 var key = require('./key.json');
 
 var Event = mongoose.model('Event');
