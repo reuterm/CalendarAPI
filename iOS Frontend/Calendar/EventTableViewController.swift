@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import EventKit
+//import EventKit
 
 class EventTableViewController: UITableViewController {
     // MARK: Properties
 
-    @IBOutlet weak var importButton: UIBarButtonItem!
     var events = [Event]()
     
     override func viewDidLoad() {
@@ -35,7 +34,7 @@ class EventTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -143,30 +142,30 @@ class EventTableViewController: UITableViewController {
     }
 
     // MARK: Actions
-    @IBAction func importEvents(sender: UIBarButtonItem) {
-        
-        let eventStore = EKEventStore()
-        
-        switch EKEventStore.authorizationStatusForEntityType(.Event) {
-        case .Authorized:
-            fetchEvents(eventStore)
-        case .Denied:
-            print("Access denied")
-        case .NotDetermined:
-            
-            eventStore.requestAccessToEntityType(.Event, completion:
-                {[weak self] (granted: Bool, error: NSError?) -> Void in
-                    if granted {
-                        self!.fetchEvents(eventStore)
-                    } else {
-                        print("Access denied")
-                    }
-                })
-        default:
-            print("Case Default")
-        }
-
-    }
+//    @IBAction func importEvents(sender: UIBarButtonItem) {
+//        
+//        let eventStore = EKEventStore()
+//        
+//        switch EKEventStore.authorizationStatusForEntityType(.Event) {
+//        case .Authorized:
+//            fetchEvents(eventStore)
+//        case .Denied:
+//            print("Access denied")
+//        case .NotDetermined:
+//            
+//            eventStore.requestAccessToEntityType(.Event, completion:
+//                {[weak self] (granted: Bool, error: NSError?) -> Void in
+//                    if granted {
+//                        self!.fetchEvents(eventStore)
+//                    } else {
+//                        print("Access denied")
+//                    }
+//                })
+//        default:
+//            print("Case Default")
+//        }
+//
+//    }
     
     
     // MARK: REST Calls
@@ -354,24 +353,24 @@ class EventTableViewController: UITableViewController {
     }
     
     // MARK: Utility
-    func fetchEvents(store: EKEventStore){
-
-        let endDate = NSDate(timeIntervalSinceNow: 604800*4);   //This is 4 weeks in seconds
-        let predicate = store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: nil)
-        
-        let fetchedEvents = NSMutableArray(array: store.eventsMatchingPredicate(predicate))
-        
-        for item in fetchedEvents {
-            insertEvent(Event(id: nil, title: item.title!!, description: item.notes!!, start: item.startDate, end: endDate, venue: item.location!!))
-        }
-    }
-    
-    func insertEvent(event: Event) {
-        // Add new event
-        let newIndexPath = NSIndexPath(forRow: events.count, inSection: 0)
-        events.append(event)
-        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
-        addEvent(event)
-    }
+//    func fetchEvents(store: EKEventStore){
+//
+//        let endDate = NSDate(timeIntervalSinceNow: 604800*4);   //This is 4 weeks in seconds
+//        let predicate = store.predicateForEventsWithStartDate(NSDate(), endDate: endDate, calendars: nil)
+//        
+//        let fetchedEvents = NSMutableArray(array: store.eventsMatchingPredicate(predicate))
+//        
+//        for item in fetchedEvents {
+//            insertEvent(Event(id: nil, title: item.title!!, description: item.notes!!, start: item.startDate, end: endDate, venue: item.location!!))
+//        }
+//    }
+//    
+//    func insertEvent(event: Event) {
+//        // Add new event
+//        let newIndexPath = NSIndexPath(forRow: events.count, inSection: 0)
+//        events.append(event)
+//        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+//        addEvent(event)
+//    }
 }
 

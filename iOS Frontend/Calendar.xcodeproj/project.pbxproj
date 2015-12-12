@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		492C94041C1C91C000762AB4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA04591BFE66EA0054A55A /* Event.swift */; settings = {ASSET_TAGS = (); }; };
+		49C1A0C21C1C8B6500A944F8 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA04611BFF592C0054A55A /* EventViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		49FA043A1BFE62FE0054A55A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49FA04391BFE62FE0054A55A /* AppDelegate.swift */; };
 		49FA043F1BFE62FE0054A55A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49FA043D1BFE62FE0054A55A /* Main.storyboard */; };
 		49FA04411BFE62FE0054A55A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 49FA04401BFE62FE0054A55A /* Assets.xcassets */; };
@@ -41,7 +43,7 @@
 		49FA04591BFE66EA0054A55A /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		49FA045D1BFF1D270054A55A /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		49FA045F1BFF49990054A55A /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewController.swift; sourceTree = "<group>"; };
-		49FA04611BFF592C0054A55A /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventViewController.swift; path = ../EventViewController.swift; sourceTree = "<group>"; };
+		49FA04611BFF592C0054A55A /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				49FA044F1BFE62FE0054A55A /* CalendarTests.swift in Sources */,
+				492C94041C1C91C000762AB4 /* Event.swift in Sources */,
+				49C1A0C21C1C8B6500A944F8 /* EventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +403,7 @@
 				49FA04551BFE62FE0054A55A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49FA04561BFE62FE0054A55A /* Build configuration list for PBXNativeTarget "CalendarTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +412,7 @@
 				49FA04581BFE62FE0054A55A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

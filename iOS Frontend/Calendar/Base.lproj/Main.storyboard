@@ -22,22 +22,34 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-3Z-iWe">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HO-3Z-iWe">
                                             <rect key="frame" x="8" y="30" width="584" height="21"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbk-Us-fb6">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbk-Us-fb6">
                                             <rect key="frame" x="8" y="8" width="584" height="21"/>
                                             <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="yVu-TI-OjA"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstItem="Fbk-Us-fb6" firstAttribute="top" secondItem="DRm-Cw-1Tv" secondAttribute="topMargin" id="CXs-1C-aFY"/>
+                                        <constraint firstItem="Fbk-Us-fb6" firstAttribute="leading" secondItem="4HO-3Z-iWe" secondAttribute="leading" id="Ux9-SA-ANw"/>
+                                        <constraint firstItem="4HO-3Z-iWe" firstAttribute="bottom" secondItem="DRm-Cw-1Tv" secondAttribute="bottomMargin" id="agJ-QK-LfO"/>
+                                        <constraint firstItem="4HO-3Z-iWe" firstAttribute="leading" secondItem="DRm-Cw-1Tv" secondAttribute="leadingMargin" id="hjL-2j-gKd"/>
+                                        <constraint firstItem="4HO-3Z-iWe" firstAttribute="top" secondItem="Fbk-Us-fb6" secondAttribute="bottom" constant="1" id="mxz-9l-LuS"/>
+                                        <constraint firstItem="4HO-3Z-iWe" firstAttribute="trailing" secondItem="Fbk-Us-fb6" secondAttribute="trailing" id="qyO-ax-CNl"/>
+                                        <constraint firstItem="4HO-3Z-iWe" firstAttribute="trailing" secondItem="DRm-Cw-1Tv" secondAttribute="trailingMargin" id="uF0-jX-tu8"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
@@ -52,15 +64,7 @@
                             <outlet property="delegate" destination="Xr1-Jp-OfS" id="tTh-jW-b2C"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Qla-Lk-DIL"/>
-                        <barButtonItem title="Import events from local calendar" id="VFD-dK-Jc5">
-                            <connections>
-                                <action selector="importEvents:" destination="Xr1-Jp-OfS" id="Vjd-Lr-1wB"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="9o2-ad-YUR"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Your Events" id="LGU-NG-TBn">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="skg-Am-nUz">
                             <connections>
@@ -69,9 +73,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="importButton" destination="VFD-dK-Jc5" id="txp-op-7Pg"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhP-U5-VNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -108,7 +109,7 @@
                                         <rect key="frame" x="0.0" y="80" width="560" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick start date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="geb-gu-j11">
@@ -125,7 +126,7 @@
                                         <rect key="frame" x="0.0" y="151" width="560" height="21"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Pick end date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Xp-Vz-lXQ">
